@@ -1,0 +1,30 @@
+<% form_for @user, :html => { :multipart => true } do |f| %>
+  <p>
+    <b> attachment </b><br/>
+      <%= f.file_field :attach %>
+    </p>
+    <p>
+     <b> Picture </b><br/>
+     <%= f.file_field :pic %>
+   </p>
+  <a href="<%= @user.attach.url %> ">
+  <b> File attached </b></a>
+  <br/>
+  <%= image_tag @user.pic.url %>
+  <br/>
+ <%= image_tag @user.pic.url(:medium) %>
+ <br/>
+ <%= image_tag @user.pic.url(:thumb) %>
+ <br/>
+ <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
